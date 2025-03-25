@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Student Registration Form</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      background:url('river tree.jpeg');
+      display: flex;
+      background-image:no-repeat;
+      background-size: cover;
+      background-position: center;
+      justify-content: center;
+      align-items: right;
+      min-height: 100px;
+      
+      
+    }
+
+    .application-form {
+      background: #9bd8d7;
+      opacity:0.4;
+      padding: 30px;
+      border-radius: 10px;
+      box-shadow: 10 10 10px rgba(125, 185, 231, 0.1);
+      width: 400px;
+      margin-top: auto; 
+    }
+    label {
+      display: block;
+      margin-top: 10px;
+    }
+    input, select {
+      padding: 5px;
+      margin-top: 5px;
+    }
+    
+  </style>
+</head>
+<body>
+<div class="application-form">
+  <h2>Student Registration Form</h2>
+  <form id="registrationForm" onsubmit="return validateForm()">
+    <label for="name">Full Name:</label>
+    <input type="text" id="name" name="name">
+
+    <label for="email">Email Address:</label>
+    <input type="email" id="email" name="email">
+
+    <label>Gender:</label>
+    <input type="radio" name="gender" value="Male"> Male
+    <input type="radio" name="gender" value="Female"> Female
+
+    <label for="course">Select Course:</label>
+    <select id="course" name="course">
+      <option value="">--Select--</option>
+      <option value="Computer Science">Computer Science</option>
+      <option value="Mathematics">Mathematics</option>
+      <option value="Physics">Physics</option>
+    </select>
+
+    <br><br>
+    <button type="submit">Register</button>
+  </form>
+</div>
+  <script>
+    function validateForm() {
+      const name = document.getElementById('name').value;
+      const email = document.getElementById('email').value;
+      const gender = document.querySelector('input[name="gender"]:checked');
+      const course = document.getElementById('course').value;
+
+      if (!name || !email || !gender || !course) {
+        alert("Please fill out all fields.");
+        return false;
+      }
+
+      alert("Registration successful!");
+      return true;
+    }
+  </script>
+
+</body>
+</html>
